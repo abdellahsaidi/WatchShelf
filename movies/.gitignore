@@ -1,0 +1,42 @@
+# Virtual Environment
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Migrations cache
+*.pyc
+
+# Testing
+.coverage
+htmlcov/
+
+# Distribution
+build/
+dist/
+*.egg-info/
+
+# Local settings
+local_settings.py

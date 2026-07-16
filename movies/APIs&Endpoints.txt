@@ -1,0 +1,73 @@
+====================================================================
+🎬 WATCHSHELF - REST API ENDPOINTS
+====================================================================
+
+--------------------------------------------------------------------
+🟢 1. PUBLIC & USER ENDPOINTS (Accès Public wela Utilisateur Connecté)
+--------------------------------------------------------------------
+
+# AUTHENTIFICATION & PROFIL (JWT)
+POST   /api/auth/register/          -> Y'kriyi compte jdid (User)
+POST   /api/auth/login/             -> Y'récupéri le Token JWT (Access & Refresh)
+POST   /api/auth/refresh/           -> Y'جدد (renouvelle) le Token JWT
+GET    /api/auth/profile/           -> Y'jbed les infos ta3 l'utilisateur connecté
+PUT    /api/auth/profile/update/    -> Y'modifi le profil (Avatar, Bio, etc.)
+
+# DÉCOUVERTE & CONTENU (Lecture seule)
+GET    /api/genres/                 -> Y'affichi la liste ta3 ga3 les genres
+GET    /api/movies/                 -> Y'affichi ga3 les films (avec filtres: genre, date, etc.)
+GET    /api/movies/{slug}/          -> Y'affichi les détails ta3 un film précis
+GET    /api/series/                 -> Y'affichi ga3 les séries (TV Shows & Anime)
+GET    /api/series/{slug}/          -> Y'affichi les détails ta3 une série w les saisons ta3ha
+GET    /api/episodes/{id}/          -> Y'affichi les détails w la vidéo ta3 l'épisode
+GET    /api/trending/               -> Y'affichi la page Trending (calculée b'l'algorithme)
+GET    /api/search/?q={query}       -> Recherche globale (Films, Séries, Anime)
+
+# INTERACTIONS (Nécessite un Token JWT valide)
+POST   /api/interactions/comment/   -> Y'zid commentaire f'un film/série/épisode
+GET    /api/interactions/comments/  -> Y'affichi les commentaires d'un contenu précis
+POST   /api/interactions/like/      -> Y'dir J'aime (ou l'enlève) l'un contenu
+POST   /api/interactions/rate/      -> Y'med la note (Rating 1-10) l'un contenu
+POST   /api/interactions/favorite/  -> Y'zid wela y'na7i un contenu men les Favoris
+GET    /api/interactions/favorites/ -> Y'affichi la liste des Favoris ta3 l'user connecté
+POST   /api/history/update/         -> Y'sauvegardi le temps de visionnage (Progress)
+GET    /api/history/                -> Y'affichi l'historique ta3 wach chaf l'utilisateur
+
+# COLLECTIONS / PLAYLISTS (Nécessite JWT)
+GET    /api/collections/            -> Y'affichi les collections ta3 l'utilisateur
+POST   /api/collections/create/     -> Y'kriyi une nouvelle collection
+POST   /api/collections/{id}/add/   -> Y'zid un film/série f'la collection
+DELETE /api/collections/{id}/       -> Y'supprimi la collection
+
+
+--------------------------------------------------------------------
+🔴 2. ADMIN & MANAGER ENDPOINTS (Accès restreint : is_staff/is_superuser)
+--------------------------------------------------------------------
+
+# AUTHENTIFICATION ADMIN
+POST   /api/admin/auth/login/       -> Y'récupéri le Token JWT pour l'admin/manager (Pas d'inscription, accès restreint)
+
+# GESTION DES GENRES
+POST   /api/admin/genres/           -> Y'zid genre jdid
+PUT    /api/admin/genres/{id}/      -> Y'modifi le nom ta3 le genre
+DELETE /api/admin/genres/{id}/      -> Y'supprimi un genre
+
+# GESTION DES FILMS
+POST   /api/admin/movies/           -> Y'zid film jdid (upload wela lien)
+PUT    /api/admin/movies/{id}/      -> Y'modifi les infos ta3 un film
+DELETE /api/admin/movies/{id}/      -> Y'supprimi un film
+
+# GESTION DES SÉRIES & ANIME
+POST   /api/admin/series/           -> Y'zid série wela anime jdid
+PUT    /api/admin/series/{id}/      -> Y'modifi une série
+DELETE /api/admin/series/{id}/      -> Y'supprimi une série
+
+# GESTION DES SAISONS & ÉPISODES
+POST   /api/admin/seasons/          -> Y'zid saison jdida l'une série
+POST   /api/admin/episodes/         -> Y'zid épisode jdid f'une saison
+PUT    /api/admin/episodes/{id}/    -> Y'modifi un épisode
+DELETE /api/admin/episodes/{id}/    -> Y'supprimi un épisode
+
+# MODÉRATION & STATISTIQUES
+DELETE /api/admin/comments/{id}/    -> Y'supprimi un commentaire (Modération)
+GET    /api/admin/dashboard/stats/  -> Y'jbed les statistiques globales (Vues, Users, etc.)

@@ -1,0 +1,87 @@
+# ====================================================================
+⚛️ WATCHSHELF - ROADMAP OPTIMISÉE (BOTTOM-UP APPROACH)
+
+### 🛠️ PHASE 1 : FONDATIONS & CONFIGURATION (Déjà fait ✅)
+
+*Avant de dessiner l'interface, on prépare le moteur.*
+
+* **FILE** `src/api/axios.js` -> Configuration Axios w Interceptors.
+* **FILE** `src/context/AuthContext.jsx` -> Gestion de l'état de l'utilisateur.
+
+---
+
+### 🧩 PHASE 2 : LAYOUTS & COMPOSANTS GLOBAUX (Déjà fait ✅)
+
+*On construit le "cadre" de l'application.*
+
+* **COMP** `src/components/Navbar.jsx` -> Barre de navigation.
+* **COMP** `src/components/Footer.jsx` -> Pied de page.
+* **FILE** `src/App.jsx` -> Le routeur li y'lem les Layouts w les futures pages.
+
+---
+
+### 🧱 PHASE 3 : LES COMPOSANTS RÉUTILISABLES (Les Briques)
+
+*On développe TOUS les petits morceaux d'interface qu'on va utiliser dans plusieurs pages. Comme ça, ils sont prêts à être insérés.*
+
+* **COMP** `src/components/Card.jsx` -> (Déjà fait ✅) Affichage d'un film/série (Poster, Titre, Note).
+* **COMP** `src/components/Player.jsx` -> Lecteur vidéo avec gestion du Watch Progress.
+* **COMP** `src/components/Rating.jsx` -> Système d'étoiles (1 à 10) pour noter.
+* **COMP** `src/components/FavButton.jsx` -> Bouton cœur pour ajouter/retirer des favoris.
+* **COMP** `src/components/Comments.jsx` -> Section pour afficher et ajouter des commentaires.
+
+---
+
+### 🚪 PHASE 4 : PAGES D'AUTHENTIFICATION (Déjà fait ✅)
+
+*Les portes d'entrée de l'application.*
+
+* **PAGE** `src/pages/auth/Login.jsx` -> Connexion.
+* **PAGE** `src/pages/auth/Register.jsx` -> Inscription.
+
+---
+
+### 🌍 PHASE 5 : PAGES DE DÉCOUVERTE (Déjà fait ✅)
+
+*Ici on assemble les pages qui utilisent le composant `Card.jsx`.*
+
+* **PAGE** `src/pages/Home.jsx` -> Hero header w Carrousel Trending.
+* **PAGE** `src/pages/Movies.jsx` -> Catalogue Films.
+* **PAGE** `src/pages/Series.jsx` -> Catalogue Séries/Animes.
+* **PAGE** `src/pages/Search.jsx` -> Résultats de recherche globale.
+
+---
+
+### 🎬 PHASE 6 : PAGES DE DÉTAILS
+
+*Ici on assemble les pages complexes qui utilisent TOUS les composants de la Phase 3 (`Player`, `Rating`, `FavButton`, `Comments`).*
+
+* **PAGE** `src/pages/MovieDetails.jsx` -> Fiche complète du film + Lecteur.
+* **PAGE** `src/pages/SeriesDetails.jsx` -> Fiche de la série + Navigation par Saisons/Épisodes + Lecteur.
+
+---
+
+### 👤 PHASE 7 : ESPACE UTILISATEUR
+
+*Pages réservées à l'utilisateur connecté (elles réutiliseront aussi `Card.jsx`).*
+
+* **PAGE** `src/pages/user/Profile.jsx` -> Modifier les infos (Avatar, Nom).
+* **PAGE** `src/pages/user/Favorites.jsx` -> Grille des favoris.
+* **PAGE** `src/pages/user/History.jsx` -> Historique de visionnage.
+* **PAGE** `src/pages/user/Collections.jsx` -> Gestion des playlists perso.
+
+---
+
+### 👑 PHASE 8 : DASHBOARD ADMIN (Indépendant)
+
+*On crée l'espace d'administration de A à Z.*
+
+* **COMP** `src/components/AdminLayout.jsx` -> Sidebar w Header spécifiques.
+* **PAGE** `src/pages/admin/Dashboard.jsx` -> Statistiques (Vues, Users).
+* **PAGE** `src/pages/admin/Genres.jsx` -> CRUD Genres.
+* **PAGE** `src/pages/admin/Movies.jsx` -> CRUD Films (Upload).
+* **PAGE** `src/pages/admin/Series.jsx` -> CRUD Séries.
+* **PAGE** `src/pages/admin/Episodes.jsx` -> CRUD Saisons/Épisodes.
+* **PAGE** `src/pages/admin/Moderation.jsx` -> Gestion des commentaires.
+
+====================================================================
